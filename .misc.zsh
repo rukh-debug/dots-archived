@@ -12,3 +12,11 @@ alias vpnOff="windscribe disconnect"
 
 #screenshot
 alias sc="i3-scrot --select"
+
+#docker start
+alias dockerStart="systemctl start docker"
+
+# Basic
+alias mv="mv -iv"
+alias cp="cp -riv"
+alias mkdir="mkdir -vp"
