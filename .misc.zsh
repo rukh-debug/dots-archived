@@ -20,3 +20,10 @@ alias dockerStart="systemctl start docker"
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir="mkdir -vp"
+
+# tools
+alias pdf='mupdf'
+alias cal='gcalcli'
+alias remind='cal remind 100'
+alias dns='echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf'
+alias music='cmus'

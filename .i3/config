@@ -58,14 +58,15 @@ exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/*
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
 
+#bindsym $mod+Ctrl+m exec pavucontrol
+#pulse audio crap is added on mod+shift+a, cuz it was easier
 
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -80,7 +81,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 
 #Screenshot app
 bindsym Print --release exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
-
+bindsym $mod+Shift+a --release exec pavucontrol -t 3
 #bindsym Print --release exec --no-startup-id i3-scrot | xclip -selection clipboard -t image/png -i
 #bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -369,7 +370,7 @@ set_from_resource $term_color15    color15
 #
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #D79921 #556064 #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -382,7 +383,7 @@ set_from_resource $term_color15    color15
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 15
 gaps outer 5
 
 
@@ -400,6 +401,7 @@ smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
+
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
