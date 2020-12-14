@@ -1,6 +1,12 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# load ploybar at first
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+#lock
+bindsym $mod+9 exec --no-startup-id blurlock
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
@@ -27,7 +33,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -44,11 +50,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ##################################################
 
 #run with reload
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/*
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -80,16 +85,19 @@ bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 #Screenshot app
-bindsym Print --release exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
-bindsym $mod+Shift+a --release exec pavucontrol -t 3
+# bindsym Print --release exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+bindsym Print exec flameshot gui
+
 #bindsym Print --release exec --no-startup-id i3-scrot | xclip -selection clipboard -t image/png -i
 #bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 #bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 #bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# focus_follows_mouse no
+# sound controle
+bindsym $mod+Shift+a --release exec pavucontrol -t 3
 
+# focus_follows_mouse no
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -120,8 +128,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec notify-send 'horizontal'
+bindsym $mod+v split v;exec notify-send 'vertical'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -206,32 +214,32 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
+for_window [class="calamares"] floating enable border pixel 1
+for_window [class="Clipgrab"] floating enable border pixel 1
+for_window [title="File Transfer*"] floating enable border pixel 1
+for_window [class="fpakman"] floating enable border pixel 1
 for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
+for_window [class="GParted"] floating enable border pixel 1
+for_window [title="i3_help"] floating enable sticky enable border pixel 1
+for_window [class="Lightdm-settings"] floating enable border pixel 1
+for_window [class="Lxappearance"] floating enable sticky enable border pixel 1
+for_window [class="Manjaro-hello"] floating enable border pixel 1
+for_window [class="Manjaro Settings Manager"] floating enable border pixel 1
+for_window [title="MuseScore: Play Panel"] floating enable pixel 1
+for_window [class="Nitrogen"] floating enable sticky enable border pixel 1
+for_window [class="Oblogout"] fullscreen enable border pixel 1
+for_window [class="octopi"] floating enable border pixel 1
+for_window [title="About Pale Moon"] floating enable border pixel 1
+for_window [class="Pamac-manager"] floating enable border pixel 1
+for_window [class="Pavucontrol"] floating enable border pixel 1
+for_window [class="qt5ct"] floating enable sticky enable border pixel 1
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border pixel 1
+for_window [class="Simple-scan"] floating enable border normal pixel 1
+for_window [class="(?i)System-config-printer.py"] floating enable border pixel 1
+for_window [class="Skype"] floating enable border pixel 1
+for_window [class="Timeset-gui"] floating enable border pixel 1
+for_window [class="(?i)virtualbox"] floating enable border pixel 1
+for_window [class="Xfburn"] floating enable border pixel 1
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -285,9 +293,6 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
