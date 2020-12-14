@@ -13,3 +13,4 @@ Extra/Useful tools used:
 3. [compont](https://github.com/tryone144/compton) - blur effect i3
 4. [betterdiscord](https://betterdiscord.net/) - makes discord better with themes and plugins
 5. [nitrogen](https://wiki.archlinux.org/index.php/nitrogen) - wallpaper changer
+6. [flameshot](https://wiki.archlinux.org/index.php/Flameshot) - sreen shot app like shareX
