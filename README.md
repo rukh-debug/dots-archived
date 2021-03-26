@@ -1,8 +1,7 @@
-dots
-Probably backup but you can use it if you like.
+# dots
+backup
 
-Tools used are similar to [these](https://github.com/rubenkharel/.dotfiles)
-
+# Some useful tools
 1. [spicetify-cli](https://github.com/khanhas/spicetify-cli) - better spotify
 2. [Zathura-mupdf](https://www.archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/) - Pdf viewer
 3. [compont](https://github.com/tryone144/compton) - blur effect i3
