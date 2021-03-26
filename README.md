@@ -1,8 +1,5 @@
-# myManjaro-i3WM.dotfiles
+dots
 Probably backup but you can use it if you like.
-
-![manjaro](https://i.imgur.com/leylCSr.png)
-
 
 Tools used are similar to [these](https://github.com/rubenkharel/.dotfiles)
 
